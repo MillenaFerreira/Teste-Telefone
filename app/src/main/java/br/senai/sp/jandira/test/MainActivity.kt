@@ -7,6 +7,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import br.senai.sp.jandira.test.ui.theme.AnimatedFloatingActionButton
+import br.senai.sp.jandira.test.ui.theme.ExpandableFloatingActionButton
+import br.senai.sp.jandira.test.ui.theme.FilterChipExample
+import br.senai.sp.jandira.test.ui.theme.ModalExampleWithNavigation
 import br.senai.sp.jandira.test.ui.theme.ModalWithVideo
 //import br.senai.sp.jandira.test.ui.theme.ExtendedExample
 import br.senai.sp.jandira.test.ui.theme.TestTheme
@@ -25,14 +29,13 @@ class MainActivity : ComponentActivity() {
                     //MyScreen()
                     //SimpleAlarm()
                     //Time()
-                    //ModalExampleWithNavigation()
+                    ModalExampleWithNavigation()
 //                    Column {
-//                        FilterChipExample()
+                        //FilterChipExample()
 //                    }
-                    //ExtendedExample(onClick = {})
                     //AnimatedFloatingActionButton()
                     //ExpandableFloatingActionButton()
-                    ModalWithTimer(onDismiss = {})
+                    //ModalWithTimer(onDismiss = {})
 
                     //ModalWithVideo()
 

@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavHostController
+import br.senai.sp.jandira.test.MainActivity
 import br.senai.sp.jandira.test.R
 
 @Composable
@@ -100,8 +101,7 @@ fun ModalExampleWithNavigation() {
                             Button(
                                 onClick = {
                                     isDialogVisible = false
-                                    // Navegar de volta para a tela anterior
-                                    //navController.popBackStack()
+                                    android.os.Process.killProcess(android.os.Process.myPid())
                                 },
                                 modifier = Modifier
                                     .fillMaxWidth()
