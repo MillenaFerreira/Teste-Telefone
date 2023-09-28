@@ -1,35 +1,45 @@
 package br.senai.sp.jandira.test
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
-import br.senai.sp.jandira.test.ui.theme.ModalExampleWithNavigation
+import br.senai.sp.jandira.test.ui.theme.ModalWithVideo
+//import br.senai.sp.jandira.test.ui.theme.ExtendedExample
 import br.senai.sp.jandira.test.ui.theme.TestTheme
-import br.senai.sp.jandira.test.ui.theme.Time
-import br.senai.sp.jandira.test.ui.theme.showTimePicker
+import br.senai.sp.jandira.test.ui.theme.VideoPlayer
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             TestTheme {
-                // A surface container using the 'background' color from the theme
+
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    //modifier = Modifier.fillMaxSize(),
+                    //color = MaterialTheme.colorScheme.background
                 ) {
                     //MyScreen()
                     //SimpleAlarm()
                     //Time()
-                    ModalExampleWithNavigation( )
+                    //ModalExampleWithNavigation()
+//                    Column {
+//                        FilterChipExample()
+//                    }
+                    //ExtendedExample(onClick = {})
+                    //AnimatedFloatingActionButton()
+                    //ExpandableFloatingActionButton()
+                    ModalWithTimer(onDismiss = {})
+
+                    //ModalWithVideo()
+
+
+
+
+
 
                     var context = LocalContext.current
 
@@ -37,21 +47,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TestTheme {
-        Greeting("Android")
     }
 }
