@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "br.senai.sp.jandira.test"
-        minSdk = 27
+        minSdk = 30
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -173,7 +173,5 @@ dependencies {
 
     //Lottie
     implementation("com.airbnb.android:lottie-compose:6.0.0")
-
-
 
 }
