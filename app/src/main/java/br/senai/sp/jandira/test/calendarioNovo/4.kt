@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CalendarView
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -96,24 +98,30 @@ fun getMonthYearStrings(month: Int, year: Int): String {
 }
 
 @Composable
-fun Kalendar1() {
+fun MyKalendarScreen() {
+    val pagingController = rememberKalendarPagingController()
 
-    val currentDay: LocalDate? = LocalDate.now()
+    // Defina a data inicial, por exemplo, a data atual
+    val initialDate = LocalDate.now()
 
+
+
+    // Use o componente Kalendar e defina-o como uma Composable
+    Column (
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.Blue)
+    ){
+        Text(text = initialDate.toString())
     Kalendar(
         modifier = Modifier.fillMaxSize(),
         showLabel = true,
-        pagingController = rememberKalendarPagingController(),
-        kalendarHeaderTextKonfig = KalendarTextKonfig( kalendarTextColor = Color.Blue, kalendarTextSize = 10.sp),
-        kalendarColors = KalendarColors(
-            color = listOf(
-                KalendarColor(backgroundColor = Color.Blue, dayBackgroundColor = Color.Blue, headerTextColor = Color.Blue), // Cor de fundo para a data atual
-                KalendarColor(backgroundColor = Color.Red, dayBackgroundColor = Color.Blue, headerTextColor = Color.Blue), // Cor de fundo para o início do intervalo selecionado
-                KalendarColor(backgroundColor = Color.Green, dayBackgroundColor = Color.Blue, headerTextColor = Color.Blue), // Cor de fundo para o fim do intervalo selecionado
-                KalendarColor(backgroundColor = Color.Yellow, dayBackgroundColor = Color.Blue, headerTextColor = Color.Blue), // Cor de fundo para o meio do intervalo selecionado
-                // E assim por diante...
-            )
+        pagingController = pagingController,
+        kalendarHeaderTextKonfig = KalendarTextKonfig(
+            kalendarTextColor = Color.Blue,
+            kalendarTextSize = 10.sp
         ),
+        kalendarColors = KalendarColors(),
         events = KalendarEvents(),
         kalendarDayKonfig = KalendarDayKonfig(
             size = 18.dp,
@@ -150,13 +158,14 @@ fun Kalendar1() {
             // Handle range selection error
         }
     )
-    
+    }
 }
+
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun sfsdf() {
-    Kalendar1()
+    MyKalendarScreen() // Chame o Composable do Kalendar aqui
 }
 
 

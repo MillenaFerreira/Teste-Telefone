@@ -20,7 +20,7 @@ import br.senai.sp.jandira.test.calendarioNovo.CalendarFragments
 import br.senai.sp.jandira.test.calendarioNovo.CalendarScreen
 import br.senai.sp.jandira.test.calendarioNovo.CalendaryS
 import br.senai.sp.jandira.test.calendarioNovo.CustomCalendar
-import br.senai.sp.jandira.test.calendarioNovo.Kalendar1
+import br.senai.sp.jandira.test.calendarioNovo.MyKalendarScreen
 import br.senai.sp.jandira.test.relatorio.RelatorioScreen
 import br.senai.sp.jandira.test.telateste.FinalizarCadastroScreen
 import br.senai.sp.jandira.test.ui.theme.TestTheme
@@ -58,11 +58,11 @@ class MainActivity : ComponentActivity() {
 
                     //FinalizarCadastroScreen()
 
-                    //CalendarScreen()
+                    CalendarScreen()
                     //CalendaryS()
                     //CalendarFragments()
 
-                    Kalendar1()
+                    //MyKalendarScreen()
                     //RelatorioScreen()
                     //var selectedDate by remember { mutableLongStateOf(0L) }
                     //CustomCalendar(selectedDate = mutableLongStateOf(selectedDate))
