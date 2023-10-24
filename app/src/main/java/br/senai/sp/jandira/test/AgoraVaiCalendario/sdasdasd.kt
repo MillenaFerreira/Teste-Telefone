@@ -5,10 +5,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBackIos
 import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.ArrowForwardIos
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,45 +52,59 @@ fun CalendarScreenSS() {
                         Color(53, 34, 95),
                         //Color(0, 0, 0)
                     )
-                )
+                ),
+                shape = RoundedCornerShape(bottomEnd = 24.dp, bottomStart = 24.dp)
             )
     ) {
         // Parte superior: nome do mês, ano e botões de navegação
-        TopAppBar(
-            title = {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxWidth(),
+            //backgroundColor = Color(53, 34, 95)
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
                 Text(
                     text = dateFormat.format(selectedDate.time).toUpperCase(),
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    fontSize = 24.sp,
+                    //fontFamily = FontFamily(Font(R.font.poppins)),
+                    fontWeight = FontWeight(500),
+                    color = Color(0xFFF9F1ED),
+                    textAlign = TextAlign.Center
                 )
-            },
-            actions = {
-                IconButton(onClick = {
-                    selectedDate.add(Calendar.MONTH, -1)
-                    selectedYear = selectedDate.get(Calendar.YEAR)
-                    selectedMonth = selectedDate.get(Calendar.MONTH) + 1
-                }) {
-                    Icon(
-                        Icons.Default.ArrowBack,
-                        contentDescription = null,
-                        tint = Color.White
-                    )
+
+                Row {
+                    IconButton(onClick = {
+                        selectedDate.add(Calendar.MONTH, -1)
+                        selectedYear = selectedDate.get(Calendar.YEAR)
+                        selectedMonth = selectedDate.get(Calendar.MONTH) + 1
+                    }) {
+                        Icon(
+                            Icons.Default.ArrowBackIos,
+                            contentDescription = null,
+                            tint = Color.White
+                        )
+                    }
+                    IconButton(onClick = {
+                        selectedDate.add(Calendar.MONTH, 1)
+                        selectedYear = selectedDate.get(Calendar.YEAR)
+                        selectedMonth = selectedDate.get(Calendar.MONTH) + 1
+                    }) {
+                        Icon(
+                            Icons.Default.ArrowForwardIos,
+                            contentDescription = null,
+                            tint = Color.White
+                        )
+                    }
                 }
-                IconButton(onClick = {
-                    selectedDate.add(Calendar.MONTH, 1)
-                    selectedYear = selectedDate.get(Calendar.YEAR)
-                    selectedMonth = selectedDate.get(Calendar.MONTH) + 1
-                }) {
-                    Icon(
-                        Icons.Default.ArrowForward,
-                        contentDescription = null,
-                        tint = Color.White
-                    )
-                }
-            },
-            backgroundColor = Color(53, 34, 95)
-        )
+            }
+        }
 
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
